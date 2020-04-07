@@ -1,0 +1,25 @@
+.formulario{
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 15%;
+}
+.boton-registro{
+    margin-left: 60%;
+  }
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    background-color: #012333;
+    color: white;
+    font-weight: 600;
+    
+  }
+  .titulo{
+    color: bisque;
+    margin-left: 20%;
+}
