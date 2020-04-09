@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "My2Cent"
+    }
+  },
+  "defaultProject": "My2Cent",
+  "cli": {
+    "analytics": "85ecb5ad-257c-4e56-9f8f-6af90ff5e79b"
+  }
 }
