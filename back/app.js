@@ -7,6 +7,9 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var accountsRouter = require('./routes/accounts');
+var incomesRouter = require('./routes/incomes');
+var spendingsRouter = require('./routes/spendings');
+
 
 //Importar db.manager
 const dbManager = require('./database/db.manager');
@@ -26,6 +29,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/accounts', accountsRouter);
+app.use('/incomes', incomesRouter);
+app.use('/spendings', spendingsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
