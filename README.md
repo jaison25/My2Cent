@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Backend
 
-Run 'cd back', next run 'npm install' to install all modules (you must need [Node JS](https://nodejs.org/es/)).
+Run 'cd back' to get into the folder 'back', next run 'npm install' to install all modules (you must need [Node JS](https://nodejs.org/es/)).
 
 ## Database
 
