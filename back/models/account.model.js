@@ -8,7 +8,6 @@ module.exports = (sequelize, Sequelize) => {
             },
             AccountName: {
                 type: Sequelize.STRING,
-                unique: true,
                 allowNull: false
             },
             AccountType: {

@@ -6,7 +6,8 @@ function createSpending(req, res) {
     return;
   }
   const newSpendingObject = {
-    SpendingName: req.body.SpendingAmount,
+    SpendingName: req.body.SpendingName,
+    SpendingAmount: req.body.SpendingAmount,
     SpendingAccountID: req.body.SpendingAccountID
   };
   dbManager.Spending.create(newSpendingObject)

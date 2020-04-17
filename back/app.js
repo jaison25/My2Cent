@@ -1,20 +1,22 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
+const session = require('express-session');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var accountsRouter = require('./routes/accounts');
-var incomesRouter = require('./routes/incomes');
-var spendingsRouter = require('./routes/spendings');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const accountsRouter = require('./routes/accounts');
+const incomesRouter = require('./routes/incomes');
+const spendingsRouter = require('./routes/spendings');
 
 
 //Importar db.manager
 const dbManager = require('./database/db.manager');
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -48,6 +50,15 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
+//Se habilitan sesiones
+app.use(session({
+	secret: 'secret',
+	resave: true,
+	saveUninitialized: true
+}));
+app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.json());
+
 //Se incializa base de datos
 dbManager.sequelizeCx.authenticate().then(() => {
   console.log('Conexión realizada');
@@ -55,6 +66,7 @@ dbManager.sequelizeCx.authenticate().then(() => {
     console.log('BD sincronizada');
   });
 }).catch(error => {
+  console.log(error);
   console.log('Error al conectar BD');
 });
 
