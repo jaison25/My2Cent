@@ -4,11 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Backend
 
-Run 'cd back' to get into the folder 'back', next run 'npm install' to install all modules (you must need [Node JS](https://nodejs.org/es/)).
+Run `cd back` to get into the folder `back`, next run `npm install` to install all modules (you must need [Node JS](https://nodejs.org/es/)).
 
 ## Database
 
-Install [MySQL](https://www.mysql.com/downloads/), create the database 'my2cent', depending of you database user change the file 'db.config.js' located in back/database, change the USER and PASSWORD.
+Install [MySQL](https://www.mysql.com/downloads/), create the database `my2cent`, depending of you database user change the file `db.config.js` located in back/database, change the USER and PASSWORD.
 
 ## Run backend
 
