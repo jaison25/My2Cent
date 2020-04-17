@@ -22,4 +22,57 @@ function createSpending(req, res) {
     });
 }
 
+async function searchSpendingByAccountId(req, res) {
+  try {
+    const { idAccount } = req.params;
+    const Spending = await dbManager.Spending.findAll({
+      where: {
+        SpendingAccountID: idAccount,
+        SpendingState: 1
+      }
+    });
+    res.json(Spending);
+  } catch (error) {
+    res.status(500).send({
+      menssage: "ERROR, SORRY"
+    });
+  }
+}
+
+async function searchSpendingById(req, res) {
+  try {
+    const { idSpending } = req.params;
+    const Spending = await dbManager.Spending.findOne({
+      where: {
+        SpendingId: idSpending,
+        SpendingState: 1
+      }
+    });
+    res.json(Spending);
+  } catch (error) {
+    res.status(500).send({
+      menssage: "ERROR, SORRY"
+    });
+  }
+}
+
+async function changeStatusSpending(req, res) {
+  try {
+    const { idSpending } = req.params;
+    const Spending = await dbManager.Spending.update(
+      { SpendingState: 0 },
+      { returning: true, where: { SpendingId: idSpending } }
+    )
+
+    res.json({ message: "Spending deleted" });
+  } catch (error) {
+    res.status(500).send({
+      menssage: "ERROR, SORRY"
+    });
+  }
+}
+
 exports.createSpending = createSpending;
+exports.searchSpendingByAccountId = searchSpendingByAccountId;
+exports.searchSpendingById = searchSpendingById;
+exports.changeStatusSpending = changeStatusSpending;

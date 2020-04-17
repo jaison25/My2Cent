@@ -6,7 +6,7 @@ function createAccount(req, res) {
     return;
   }
   const newAccountObject = {
-    AccountName: req.body.AccountName,    
+    AccountName: req.body.AccountName,
     AccountType: req.body.AccountType,
     AccountTotal: req.body.AccountTotal,
     AccountUserID: req.body.AccountUserID
@@ -23,4 +23,57 @@ function createAccount(req, res) {
     });
 }
 
+async function searchAccountsByUserId(req, res) {
+  try {
+    const { idUser } = req.params;
+    const accounts = await dbManager.Account.findAll({
+      where: {
+        AccountUserID: idUser,
+        AccountState: 1
+      }
+    });
+    res.json(accounts);
+  } catch (error) {
+    res.status(500).send({
+      menssage: "ERROR, SORRY"
+    });
+  }
+}
+
+async function searchAccountsById(req, res) {
+  try {
+    const { idAccount } = req.params;
+    const account = await dbManager.Account.findOne({
+      where: {
+        AccountId: idAccount,
+        AccountState: 1
+      }
+    });
+    res.json(account);
+  } catch (error) {
+    res.status(500).send({
+      menssage: "ERROR, SORRY"
+    });
+  }
+}
+
+async function changeStatusAccount(req, res) {
+  try {
+    const { idAccount } = req.params;
+    const account = await dbManager.Account.update(
+      { AccountState: 0 },
+      { returning: true, where: { AccountId: idAccount } }
+    )
+
+    res.json({ message: "Account deleted" });
+  } catch (error) {
+    res.status(500).send({
+      menssage: "ERROR, SORRY"
+    });
+  }
+}
+
 exports.createAccount = createAccount;
+exports.searchAccountsByUserId = searchAccountsByUserId;
+exports.searchAccountsById = searchAccountsById;
+exports.changeStatusAccount = changeStatusAccount;

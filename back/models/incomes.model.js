@@ -17,6 +17,11 @@ module.exports = (sequelize, Sequelize) => {
             IncomeAccountID: {
                 type: Sequelize.INTEGER,
                 allowNull: true
+            },
+            IncomeState: {
+                type: Sequelize.INTEGER,
+                allowNull: false,
+                defaultValue: 1
             }
         },
         {

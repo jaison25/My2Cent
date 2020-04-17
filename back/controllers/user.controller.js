@@ -42,8 +42,8 @@ async function login(req, res) {
 
     if (user) {
       //Se crea sesión de usuario en el back
-      req.session.loggedin = true;
-      req.session.username = username;
+      //req.session.loggedin = true;
+      //req.session.username = username;
       res.json({ message: "User logged" });
     }
     else {

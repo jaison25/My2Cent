@@ -22,4 +22,56 @@ function createIncome(req, res) {
     });
 }
 
+async function searchIncomesByAccountId(req, res) {
+  try {
+    const { idAccount } = req.params;
+    const Incomes = await dbManager.Income.findAll({
+      where: {
+        IncomeAccountID: idAccount,
+        IncomeState: 1
+      }
+    });
+    res.json(Incomes);
+  } catch (error) {
+    res.status(500).send({
+      menssage: "ERROR, SORRY"
+    });
+  }
+}
+
+async function searchIncomesById(req, res) {
+  try {
+    const { idIncome } = req.params;
+    const Income = await dbManager.Income.findOne({
+      where: {
+        IncomeId: idIncome
+      }
+    });
+    res.json(Income);
+  } catch (error) {
+    res.status(500).send({
+      menssage: "ERROR, SORRY"
+    });
+  }
+}
+
+async function changeStatusIncome(req, res) {
+  try {
+    const { idIncome } = req.params;
+    const Income = await dbManager.Income.update(
+      { IncomeState: 0 },
+      { returning: true, where: { IncomeId: idIncome } }
+    )
+
+    res.json({ message: "Income deleted" });
+  } catch (error) {
+    res.status(500).send({
+      menssage: "ERROR, SORRY"
+    });
+  }
+}
+
 exports.createIncome = createIncome;
+exports.searchIncomesByAccountId = searchIncomesByAccountId;
+exports.searchIncomesById = searchIncomesById;
+exports.changeStatusIncome = changeStatusIncome;

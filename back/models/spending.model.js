@@ -17,6 +17,11 @@ module.exports = (sequelize, Sequelize) => {
             SpendingAccountID: {
                 type: Sequelize.INTEGER,
                 allowNull: false
+            },
+            SpendingState: {
+                type: Sequelize.INTEGER,
+                allowNull: false,
+                defaultValue: 1
             }
         },
         {

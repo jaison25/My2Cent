@@ -21,6 +21,11 @@ module.exports = (sequelize, Sequelize) => {
             AccountUserID: {
                 type: Sequelize.INTEGER,
                 allowNull: false
+            },
+            AccountState: {
+                type: Sequelize.INTEGER,
+                allowNull: false,
+                defaultValue: 1
             }
         },
         {
