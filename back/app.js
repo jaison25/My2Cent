@@ -11,6 +11,7 @@ const usersRouter = require('./routes/users');
 const accountsRouter = require('./routes/accounts');
 const incomesRouter = require('./routes/incomes');
 const spendingsRouter = require('./routes/spendings');
+const incomestypeRouter = require('./routes/incomestype');
 
 
 //Importar db.manager
@@ -33,6 +34,7 @@ app.use('/users', usersRouter);
 app.use('/accounts', accountsRouter);
 app.use('/incomes', incomesRouter);
 app.use('/spendings', spendingsRouter);
+app.use('/incomestype', incomestypeRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
