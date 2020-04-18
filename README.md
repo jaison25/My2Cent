@@ -10,6 +10,15 @@ Run `cd back` to get into the folder `back`, next run `npm install` to install a
 
 Install [MySQL](https://www.mysql.com/downloads/), create the database `my2cent`, depending of you database user change the file `db.config.js` located in back/database, change the USER and PASSWORD.
 
+Execute the scripts after create the tables
+CREATE DEFINER=`root`@`localhost` TRIGGER `incomes_update_account_AFTER_INSERT` AFTER INSERT ON `incomes` FOR EACH ROW BEGIN
+	UPDATE my2cent.account SET AccountTotal = AccountTotal + NEW.IncomeAmount WHERE AccountId = NEW.IncomeAccountID;
+END
+
+CREATE DEFINER=`root`@`localhost` TRIGGER `spending_update_account_AFTER_INSERT` AFTER INSERT ON `spending` FOR EACH ROW BEGIN
+	UPDATE my2cent.account SET AccountTotal = AccountTotal - NEW.SpendingAmount WHERE AccountId = NEW.SpendingAccountID;
+END
+
 ## Run backend
 
 Run 'npm run dev' to start the server, now you can test the services.
