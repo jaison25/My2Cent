@@ -1,7 +1,12 @@
+.intro{
+ padding:11%;
+ background-color: #007bff;
+
+}
 .formulario{
     margin-left: 30%;
     margin-right: 30%;
-    margin-top: 15%;
+    margin-top: 10%;
 }
 .boton-registro{
     margin-left: 60%;

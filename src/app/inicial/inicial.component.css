@@ -1,0 +1,43 @@
+.toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 74px;
+    display: flex;
+    align-items: center;
+    background-color: #012333;
+    color: white;
+    font-weight: 600;
+    
+  }
+.container{
+  position: 100%;
+  margin-inline-start: 0px;
+}
+.menu{
+  padding: 3em;
+}
+  .spacer {
+    margin-left: 25%;
+  margin-right: 3%;
+  }
+.tamano{
+  width: 25%;
+  height: 25%;
+}
+.grafica{
+  width: 300%;
+}
+.formulario{
+  width: 100%;
+  height: 50%;
+  margin-right: 2%;
+}
+.col-2{
+  padding: 0.5px;
+  margin-left: auto;
+  margin-right:auto;
+}
+
+
