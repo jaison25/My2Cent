@@ -7,18 +7,25 @@ function createUser(req, res) {
   }
   const newUserObject = {
     UserName: req.body.UserName,
+    UserLastName: req.body.UserLastName,
+    UserNickName: req.body.UserNickName,
     UserMail: req.body.UserMail,
     UserBirth: req.body.UserBirth,
     UserPassword: req.body.UserPassword,
     UserGender: req.body.UserGender
   };
+
   dbManager.User.create(newUserObject)
     .then((data) => {
-      res.send(data);
+      res.send({
+        status: true,
+        data: data
+      });
     })
     .catch((error) => {
       console.log(error);
       res.status(500).send({
+        status: false,
         menssage: "SOMENTHING HAPPENED, ERROR"
       });
     });
