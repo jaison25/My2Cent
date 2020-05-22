@@ -6,17 +6,26 @@ import { AppComponent } from './app.component';
 import { IngresarComponent } from './ingresar/ingresar.component';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { InicialComponent } from './inicial/inicial.component';
+import { ChartsModule } from 'ng2-charts';
+import { IngresosComponent } from './ingresos/ingresos.component';
+import { GastosComponent } from './gastos/gastos.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     IngresarComponent,
     RegistrarseComponent,
-    InicioComponent
+    InicioComponent,
+    InicialComponent,
+    IngresosComponent,
+    GastosComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
