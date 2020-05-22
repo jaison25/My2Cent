@@ -35,19 +35,21 @@ async function login(req, res) {
     //Query user
     const user = await dbManager.User.findOne({
       where: {
-        UserName: userName,
+        UserMail: userName,
         UserPassword: userPassword
       }
     });
 
     if (user) {
-      //Se crea sesión de usuario en el back
-      //req.session.loggedin = true;
-      //req.session.username = username;
-      res.json({ message: "User logged" });
+      const userLogin = {
+        username: user.UserName,
+        email: user.UserMail,
+        id: user.UserId
+      }
+      res.json({ status: true, user: userLogin, message: "User logged" });
     }
     else {
-      res.json({ message: "User/Password wrong" });
+      res.json({ status: false, message: "User/Password wrong" });
     }
   }
   catch (e) {

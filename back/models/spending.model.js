@@ -22,6 +22,16 @@ module.exports = (sequelize, Sequelize) => {
                 type: Sequelize.INTEGER,
                 allowNull: false,
                 defaultValue: 1
+            },
+            SpendingDate: {
+                type: Sequelize.DATE,
+                allowNull: false,
+                defaultValue: new Date()
+            },
+            SpendingPeriod: {
+                type: Sequelize.INTEGER,
+                allowNull: false,
+                defaultValue: 0
             }
         },
         {
