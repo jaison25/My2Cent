@@ -12,11 +12,4 @@ export class InicioComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  logOut(){
-    sessionStorage.removeItem('id');
-    sessionStorage.removeItem('mail');
-    sessionStorage.removeItem('nombre');
-    location.href="/";
-  }
-
 }

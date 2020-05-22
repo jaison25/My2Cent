@@ -184,6 +184,11 @@ export class InicialComponent  implements OnInit{
     return { x, y, r };
   }
 
-
+  logOut(){
+    sessionStorage.removeItem('id');
+    sessionStorage.removeItem('mail');
+    sessionStorage.removeItem('nombre');
+    location.href="/";
+  }
 
 }
