@@ -8,12 +8,10 @@ module.exports = (sequelize, Sequelize) => {
             },
             UserName: {
                 type: Sequelize.STRING,
-                unique: true,
                 allowNull: false
             },
             UserLastName: {
                 type: Sequelize.STRING,
-                unique: true,
                 allowNull: false
             },
             UserNickName: {
