@@ -3,7 +3,7 @@
       width="19%"
       alt="Logo My 2 Cent"
       src="/assets/Logo.png"
-      onclick="location.href=''"
+      onclick="location.href='bienvenido'"
     />
   </div>
 <div class= "intro">
@@ -17,7 +17,7 @@
         <br>
         <div class="row">
           <div class="col">
-            <input type="Nomber" class="form-control" placeholder="Cantidad">
+            <input type="text" class="form-control" [(ngModel)]="NewIncome.IncomeName" placeholder="Cantidad">
           </div>
           <div class="col">
             <div class="dropdown">
@@ -37,7 +37,7 @@
         <br>
         <div class="row">
             <div class="col">
-              <input type="date" class="form-control" placeholder="fecha">
+              <input type="date" class="form-control" [(ngModel)]="NewIncome.IncomeDate" placeholder="fecha">
             </div>
             <div class="col">
                 <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 156px;">
@@ -53,7 +53,7 @@
             <br>
         </div>
           <div class="boton">
-            <button type="submit" class="btn btn-success">Agregar</button>
+            <button type="submit" class="btn btn-success" (click)="CreateIncome()">Agregar</button>
           </div>
           
       </form>

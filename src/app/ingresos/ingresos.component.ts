@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IngresosService } from '../services/ingresos/ingresos.service';
 
 @Component({
   selector: 'app-ingresos',
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ingresos.component.css']
 })
 export class IngresosComponent implements OnInit {
-
-  constructor() { }
+  NewIncome = {
+    IncomeName: '',
+    IncomeAmount: '',
+    IncomeAccountID: '',
+    IncomeDate: '',
+    IncomePeriod: ''
+  }
+  constructor(private IngresosService: IngresosService) { }
 
   ngOnInit(): void {
+  }
+
+  CreateIncome() {
+    this.IngresosService.CreateIncome(this.NewIncome).subscribe(data => {
+    
+      
+    })
   }
 
 }
