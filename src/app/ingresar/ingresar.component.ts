@@ -19,7 +19,7 @@ export class IngresarComponent implements OnInit {
 
   userLogin() {
     this.loginService.loginUser(this.newUser.username, this.newUser.password).subscribe(data => {
-
+     
       const isLogin = data.status;
       
       if (isLogin) {
