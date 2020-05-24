@@ -10,8 +10,8 @@ import { RegistrarseComponent } from './registrarse/registrarse.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { InicialComponent } from './inicial/inicial.component';
 import { ChartsModule } from 'ng2-charts';
-import { IngresosComponent } from './ingresos/ingresos.component';
-import { GastosComponent } from './gastos/gastos.component';
+import { CuentaComponent } from './cuenta/cuenta.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 @NgModule({
@@ -21,8 +21,8 @@ import { GastosComponent } from './gastos/gastos.component';
     RegistrarseComponent,
     InicioComponent,
     InicialComponent,
-    IngresosComponent,
-    GastosComponent
+    CuentaComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

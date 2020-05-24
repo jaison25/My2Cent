@@ -20,9 +20,9 @@ export class IngresarComponent implements OnInit {
   userLogin() {
     this.loginService.loginUser(this.newUser.username, this.newUser.password).subscribe(data => {
      
-      const isLogin = data.status;
+     // const isLogin = data.status;
       
-      if (isLogin) {
+     /* if (isLogin) {
         alert(`Bienvenid@ ${data.user.username}`);
         sessionStorage.setItem('nombre', JSON.stringify(data.user.username));
         sessionStorage.setItem('mail', JSON.stringify(data.user.email));
@@ -32,6 +32,8 @@ export class IngresarComponent implements OnInit {
       else {
         alert('Usuario inválido')
       }
+
+      */
     })
   }
 

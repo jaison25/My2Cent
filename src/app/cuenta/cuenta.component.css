@@ -13,13 +13,11 @@
     
   }
   .menua{
-  
     z-index: 10;
-    background-color: #012333;
+    height: 100%;
     width: 218px;
-    
+    background-color: #012333;
   }
-  
   .favmenu{
     width: 2%;
     height: 2%;
@@ -129,6 +127,7 @@ transition: .2s ease all;
   margin-bottom: 10px;
   /*opacity: 0;*/
 }
+
 
 
 .popup form .contenedor-inputs input{

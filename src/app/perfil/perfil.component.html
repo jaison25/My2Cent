@@ -1,0 +1,46 @@
+<div class="toolbar" role="banner">
+    <img
+      width="15%"
+      alt="Logo My 2 Cent"
+      src="/assets/Logo.png"
+      onclick="location.href='bienvenido'"
+    />
+  </div>
+<hr>
+<hr>
+<br>
+
+<div class= "container-all">
+    <div class="row">
+
+        <div class= "col-md-3 col-xl-2 bd-sidebar"  >
+          <div class= "menua">
+  
+            <input type="checkbox" id = "check">
+              <label for="check" class="menu"></label>
+              <nav class="menup">
+                  <ul>
+                      <li onclick="location.href='cuentas'">Cuentas</li>
+                      <button class="btn-agregar" id="btn-agregar">Agregar Cuenta <i class="fas fa-plus-circle"></i></button>
+                      <li onclick="location.href='bienvenido'">Inicio</li>
+                      <li onclick="location.href=''">Salir</li>
+                  </ul>
+              </nav>
+          </div>
+        </div>
+        <div class= "col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
+          <div class = "overlay" id="overlay">
+            <div class="popup" id="popup">
+              <a  id="btn-cerrar-popup" class="btn-cerrar-popup"><i class= "fas fa-times"></i></a>
+              <h3>AGREGAR CUENTA</h3>
+              <form action="">
+                <div class="contenedor-inputs">
+                  <input type="text" placeholder="cuenta">
+                </div>
+                  <input type="submit" class = "btn-submit" value="Agregar">
+              </form>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -13,13 +13,12 @@
     
   }
   .menua{
-  
-    z-index: 10;
-    background-color: #012333;
-    width: 218px;
     
+    z-index: 10;
+    height: 100%;
+    width: 218px;
+    background-color: #012333;
   }
-  
   .favmenu{
     width: 2%;
     height: 2%;
@@ -85,7 +84,6 @@
   margin-left: auto;
   margin-right:auto;
 }
-
 .overlay{
   background-color: rgba(0, 0, 0, .8);
   position: fixed;
@@ -130,6 +128,8 @@ transition: .2s ease all;
   /*opacity: 0;*/
 }
 
+.popup form .contenedor-inputs{
+}
 
 .popup form .contenedor-inputs input{
   width: 100%;
@@ -178,3 +178,4 @@ transition: .2s ease all;
 .popup.active{
   opacity: 1;
 }
+

@@ -13,16 +13,15 @@
 <div class= "container-all">
     <div class="row">
 
-        <div class= "col-md-3 col-xl-2 bd-sidebar" style="background-color: #012333;" >
+        <div class= "col-md-3 col-xl-2 bd-sidebar">
           <div class= "menua">
   
             <input type="checkbox" id = "check">
-              <label for="check" class="menu">menu</label>
+              <label for="check" class="menu"></label>
               <nav class="menup">
                   <ul>
-                      <li onclick="location.href='gastos'">Gastos</li>
-                      <li onclick="location.href='ingresos'">Ingresos</li>
-                      <li>Perfil</li>
+                      <li onclick="location.href='cuentas'">Cuentas</li>
+                         <li onclick="location.href='perfil'">Perfil</li>
                       <li onclick="location.href=''">Salir</li>
                   </ul>
               </nav>
@@ -80,10 +79,8 @@
                               <button mat-button mat-raised-button color="primary" (click)="addSlice()">Add Slice</button>
                               <button mat-button mat-raised-button color="primary" (click)="removeSlice()">Remove Slice</button>
                               <button mat-button mat-raised-button color="primary" (click)="changeLegendPosition()">Change Legend Position</button>
-                          
                             </div>
                           </div>
-               
                     </div>   
                     <div class="col-2">
                         <div class="grafica">
