@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CuentasService } from '../services/cuentas/cuentas.service';
 
 @Component({
   selector: 'app-cuenta',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CuentaComponent implements OnInit {
 
+  listaAccounts = [];
+  miscuentas = [];
+  IdUser = '1';
 
-  constructor() {
-   }
+  constructor(private allaccounts: CuentasService) { }
+  
+  getAllAccounts(){
+    this.allaccounts.getAllAccounts(
+      data => {
+        console.log(data)
+        const arrayAccounts = data.cuentas.map(cuenta => {
+          return {
+            idAccount: cuenta.idAccount,
+            name: cuenta.name,
+            total: cuenta.user.total
+          }
+        });
+        this.miscuentas = arrayAccounts
+      }
+    )
+  }
 
   ngOnInit(): void {
     var btnAbrirPopup = document.getElementById("btn-agregar"),
