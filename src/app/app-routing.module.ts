@@ -6,7 +6,9 @@ import { RegistrarseComponent } from './registrarse/registrarse.component';
 import { InicialComponent} from './inicial/inicial.component';
 import { CuentaComponent } from "./cuenta/cuenta.component";
 import { PerfilComponent} from "./perfil/perfil.component";
-
+import { ChartComponent} from "./chart/chart.component";
+import { DonaComponent} from "./dona/dona.component";
+import { PieComponent} from "./pie/pie.component";
 
 
 const routes: Routes = [
@@ -15,7 +17,13 @@ const routes: Routes = [
   {path: 'registrarse', component: RegistrarseComponent},
   {path: 'bienvenido', component:InicialComponent},
   {path: 'cuentas', component:CuentaComponent},
-  {path: 'perfil', component:PerfilComponent}
+  {path: 'perfil', component:PerfilComponent},
+  {path: 'grafica', component:ChartComponent},
+  {path: 'dona', component:DonaComponent},
+  {path: 'pie', component:PieComponent},
+  {path: '**', component:InicialComponent},
+
+  
   
 ];
 

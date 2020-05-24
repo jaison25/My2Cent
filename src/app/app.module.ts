@@ -12,6 +12,9 @@ import { InicialComponent } from './inicial/inicial.component';
 import { ChartsModule } from 'ng2-charts';
 import { CuentaComponent } from './cuenta/cuenta.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { ChartComponent } from './chart/chart.component';
+import { DonaComponent } from './dona/dona.component';
+import { PieComponent } from './pie/pie.component';
 
 
 @NgModule({
@@ -22,7 +25,10 @@ import { PerfilComponent } from './perfil/perfil.component';
     InicioComponent,
     InicialComponent,
     CuentaComponent,
-    PerfilComponent
+    PerfilComponent,
+    ChartComponent,
+    DonaComponent,
+    PieComponent
   ],
   imports: [
     BrowserModule,
