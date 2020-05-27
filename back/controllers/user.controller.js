@@ -20,7 +20,7 @@ function createUser(req, res) {
       res.send({
         status: true,
         message: "Usuario registrado",
-        data: { username: newUserObject.UserNickName, email: newUserObject.UserMail, id: data.UserId }
+        data: { username: newUserObject.UserNickName, email: newUserObject.UserMail, id: data.UserId, lastname: newUserObject.UserLastName, birth: newUserObject.UserBirth}
       });
     })
     .catch((error) => {
@@ -52,7 +52,9 @@ async function login(req, res) {
       const userLogin = {
         username: user.UserName,
         email: user.UserMail,
-        id: user.UserId
+        id: user.UserId,
+        lastname: user.UserLastName,
+        birth: user.UserBirth
       }
       res.json({ status: true, data: userLogin, message: "User logged" });
     }

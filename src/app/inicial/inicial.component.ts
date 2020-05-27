@@ -9,6 +9,7 @@ import { Color } from 'ng2-charts';
   styleUrls: ['./inicial.component.css'],
 })
 export class InicialComponent  implements OnInit{
+  nombre: string;
   
   public doughnutChartLabels = ['ingresos', 'Gastos'];
   public doughnutChartData = [70,45];
@@ -29,7 +30,10 @@ export class InicialComponent  implements OnInit{
   ];
    
 
-  constructor() { }
+  constructor() { 
+    this.nombre = JSON.parse(sessionStorage.getItem('nombre'));
+  }
+  
 
   ngOnInit() {
   }

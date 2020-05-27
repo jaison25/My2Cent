@@ -9,8 +9,19 @@
     background-color: #012333;
     color: white;
     font-weight: 600;
+  }
+  .toolbar .logo{
     cursor: pointer;
-    
+  }
+  .toolbar .nombre{
+    position: fixed;
+    align-items: center;
+    top: auto;
+    display: block;
+    left: 90%;
+    font-size: 20px;
+    height: 74px;
+    cursor: poiter;
   }
   .menua{
     z-index: 10;

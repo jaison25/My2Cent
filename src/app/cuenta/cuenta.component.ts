@@ -7,12 +7,15 @@ import { CuentasService } from '../services/cuentas/cuentas.service';
   styleUrls: ['./cuenta.component.css']
 })
 export class CuentaComponent implements OnInit {
+  nombre: string;
 
   listaAccounts = [];
   miscuentas = [];
   IdUser = '1';
 
-  constructor(private allaccounts: CuentasService) { }
+  constructor(private allaccounts: CuentasService) { 
+    this.nombre = JSON.parse(sessionStorage.getItem('nombre'));
+  }
   
   getAllAccounts(){
     this.allaccounts.getAllAccounts(
