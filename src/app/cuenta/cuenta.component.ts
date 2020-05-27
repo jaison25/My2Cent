@@ -13,6 +13,11 @@ export class CuentaComponent implements OnInit {
 
   listaAccounts = [];
   miscuentas = [];
+  newAccountObject = {
+    AccountName: '',
+    AccountUserId: '',
+    AccountTotal: ''
+  }
 
   constructor(private allaccounts: CuentasService) { 
     this.nombre = JSON.parse(sessionStorage.getItem('nombre'));
@@ -33,6 +38,8 @@ export class CuentaComponent implements OnInit {
         this.miscuentas = arrayAccounts
     })
   }
+
+  
 
   ngOnInit(): void {
     var btnAbrirPopup = document.getElementById("btn-agregar"),
@@ -55,7 +62,16 @@ export class CuentaComponent implements OnInit {
     }
     });
   }
-
+  CreateAccount() {
+    this.allaccounts.CreateAccounts(this.newAccountObject).subscribe((response: Response<AccountResponse>) => {
+      this.newAccountObject.AccountUserId = JSON.parse(sessionStorage.getItem('id'));
+      const isRegister = response.status;
+           
+    })
+  }
   
-
 }
+
+
+
+

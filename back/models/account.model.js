@@ -12,7 +12,7 @@ module.exports = (sequelize, Sequelize) => {
             },
             AccountType: {
                 type: Sequelize.STRING,
-                allowNull: false
+                //allowNull: false
             },
             AccountTotal: {
                 type: Sequelize.INTEGER,

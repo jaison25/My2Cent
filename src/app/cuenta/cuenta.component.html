@@ -39,9 +39,9 @@
                 <h3>AGREGAR CUENTA</h3>
                 <form action="">
                   <div class="contenedor-inputs">
-                    <input type="text" placeholder="cuenta">
+                    <input type="text" [(ngModel)]="newAccountObject.AccountName" placeholder="cuenta">
                   </div>
-                    <input type="submit" class = "btn-submit" value="Agregar">
+                    <input type="submit" class = "btn-submit" (click)="CreateAccount()" value="Agregar">
                 </form>
               </div>
             </div>
