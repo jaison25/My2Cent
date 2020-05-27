@@ -32,6 +32,27 @@ function createUser(req, res) {
     });
 }
 
+async function findUserById(req, res) {
+  try {
+      const { idUser } = req.params;
+      const user = await dbManager.User.findOne({
+          where: {
+            UserId: idUser
+          }
+      });
+
+      res.send({
+          data: user
+      });
+  }
+  catch (error) {
+      console.log(error);
+      res.status(500).send({
+          message: 'Error interno al traer usuario'
+      })
+  }
+}
+
 async function login(req, res) {
   try {
     if (!req.body) {
@@ -72,4 +93,5 @@ async function login(req, res) {
   }
 }
 exports.createUser = createUser;
+exports.findUserById = findUserById;
 exports.login = login;
