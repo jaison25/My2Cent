@@ -1,5 +1,6 @@
 export interface AccountResponse{
     AccountId: number,
     AccountName: String,
-    AccountTotal: number
+    AccountTotal: number,
+    AccountUserID: number
 }

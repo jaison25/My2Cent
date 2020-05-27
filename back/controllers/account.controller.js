@@ -7,7 +7,7 @@ function createAccount(req, res) {
   }
   const newAccountObject = {
     AccountName: req.body.AccountName,
-    AccountType: req.body.AccountType,
+    //AccountType: req.body.AccountType,
     AccountTotal: req.body.AccountTotal,
     AccountUserID: req.body.AccountUserID
   };

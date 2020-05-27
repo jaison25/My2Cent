@@ -11,4 +11,7 @@ export class CuentasService {
   getAllAccounts(IdUser) {
     return this.http.get(`http://localhost:3000/accounts/${IdUser}`)
   }
+  CreateAccounts(IdUser) {
+    return this.http.post(`http://localhost:3000/accounts/`, IdUser)
+  }
 }
