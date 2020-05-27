@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RegistroService } from '../services/registro/registro.service';
+import { Response } from '../interfaces/response';
+import { LoginResponse } from '../interfaces/loginResponse';
 
 @Component({
   selector: 'app-registrarse',
@@ -23,20 +25,20 @@ export class RegistrarseComponent implements OnInit {
   }
 
   userRegister() {
-    this.registroService.registerUser(this.newUserObject).subscribe(data => {
-     /*const isRegister = data.status;
+    this.registroService.registerUser(this.newUserObject).subscribe((response: Response<LoginResponse>) => {
+     const isRegister = response.status;
       
      if (isRegister) {
-        alert(`Bienvenid@ ${data.data.UserName}`);
-        sessionStorage.setItem('nombre', JSON.stringify(data.data.UserName));
-        sessionStorage.setItem('mail', JSON.stringify(data.data.UserMail));
-        sessionStorage.setItem('id', JSON.stringify(data.data.UserId));
+        alert(`Bienvenid@ ${response.data.username}`);
+        sessionStorage.setItem('nombre', JSON.stringify(response.data.username));
+        sessionStorage.setItem('mail', JSON.stringify(response.data.email));
+        sessionStorage.setItem('id', JSON.stringify(response.data.id));
         location.href = 'bienvenido'
       }
       else {
         alert('No fue posible realizar el registro, verifica los campos')
       }
-      */
+      
     })
   }
 }

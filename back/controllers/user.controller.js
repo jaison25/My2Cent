@@ -19,7 +19,8 @@ function createUser(req, res) {
     .then((data) => {
       res.send({
         status: true,
-        data: data
+        message: "Usuario registrado",
+        data: { username: newUserObject.UserNickName, email: newUserObject.UserMail, id: data.UserId }
       });
     })
     .catch((error) => {
@@ -53,7 +54,7 @@ async function login(req, res) {
         email: user.UserMail,
         id: user.UserId
       }
-      res.json({ status: true, user: userLogin, message: "User logged" });
+      res.json({ status: true, data: userLogin, message: "User logged" });
     }
     else {
       res.json({ status: false, message: "User/Password wrong" });
