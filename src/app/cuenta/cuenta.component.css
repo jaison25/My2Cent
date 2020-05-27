@@ -188,3 +188,15 @@ transition: .2s ease all;
 .popup.active{
   opacity: 1;
 }
+.cuadroCuenta{
+  background-color: #007bff;
+  padding: 20px;
+  color: #ffffff;
+  border-radius: 6px;
+}
+.cuadroCuenta .row .col .col-2{
+  margin-left: 70%;
+}
+.cuadroCuenta .row .col .btn-cuenta{
+  margin-left: 70%;
+}

@@ -15,6 +15,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { ChartComponent } from './chart/chart.component';
 import { DonaComponent } from './dona/dona.component';
 import { PieComponent } from './pie/pie.component';
+import { TipoCuentaComponent } from './tipo-cuenta/tipo-cuenta.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { PieComponent } from './pie/pie.component';
     PerfilComponent,
     ChartComponent,
     DonaComponent,
-    PieComponent
+    PieComponent,
+    TipoCuentaComponent
   ],
   imports: [
     BrowserModule,

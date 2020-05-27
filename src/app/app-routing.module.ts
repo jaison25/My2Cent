@@ -9,6 +9,7 @@ import { PerfilComponent} from "./perfil/perfil.component";
 import { ChartComponent} from "./chart/chart.component";
 import { DonaComponent} from "./dona/dona.component";
 import { PieComponent} from "./pie/pie.component";
+import { TipoCuentaComponent} from "./tipo-cuenta/tipo-cuenta.component";
 
 
 const routes: Routes = [
@@ -21,7 +22,9 @@ const routes: Routes = [
   {path: 'grafica', component:ChartComponent},
   {path: 'dona', component:DonaComponent},
   {path: 'pie', component:PieComponent},
-  {path: '**', component:InicialComponent},
+  {path: 'cuenta', component:TipoCuentaComponent},
+  {path: '**', component:InicialComponent}
+  
 
   
   

@@ -2,7 +2,7 @@ const dbConfig = {
     HOST: "localhost",
     PORT: 3306,
     USER: "root",
-    PASSWORD: "root123*",
+    PASSWORD: "",
     DB: "my2cent",
     DIALECT: "mysql",
     POOL: {
