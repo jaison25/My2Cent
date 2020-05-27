@@ -7,9 +7,8 @@ import { HttpClient } from '@angular/common/http';
 export class CuentasService {
 
   constructor(private http: HttpClient) { }
-  var
 
   getAllAccounts(IdUser) {
-    return this.http.get('http://localhost:3000/', IdUser)
+    return this.http.get(`http://localhost:3000/accounts/${IdUser}`)
   }
 }

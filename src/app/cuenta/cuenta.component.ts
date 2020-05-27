@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CuentasService } from '../services/cuentas/cuentas.service';
+import { Response } from '../interfaces/response';
+import { AccountResponse } from '../interfaces/accountResponse';
 
 @Component({
   selector: 'app-cuenta',
@@ -11,26 +13,25 @@ export class CuentaComponent implements OnInit {
 
   listaAccounts = [];
   miscuentas = [];
-  IdUser = '1';
 
   constructor(private allaccounts: CuentasService) { 
     this.nombre = JSON.parse(sessionStorage.getItem('nombre'));
+    this.getAllAccounts();
   }
   
   getAllAccounts(){
-    this.allaccounts.getAllAccounts(
-      data => {
-        console.log(data)
-        const arrayAccounts = data.cuentas.map(cuenta => {
+    const idUser = JSON.parse(sessionStorage.getItem('id'));
+    this.allaccounts.getAllAccounts(idUser).subscribe((response: Response<[AccountResponse]>) => {
+        const arrayAccounts = response.data.map(cuenta => {
           return {
-            idAccount: cuenta.idAccount,
-            name: cuenta.name,
-            total: cuenta.user.total
+            idAccount: cuenta.AccountId,
+            name: cuenta.AccountName,
+            total: cuenta.AccountTotal
           }
         });
+
         this.miscuentas = arrayAccounts
-      }
-    )
+    })
   }
 
   ngOnInit(): void {
