@@ -199,3 +199,7 @@ transition: .2s ease all;
 .cuadroCuenta .row .col .btn-cuenta{
   margin-left: 70%;
 }
+
+.cursor-link{
+  cursor: pointer;
+}

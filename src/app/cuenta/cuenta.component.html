@@ -51,11 +51,11 @@
                     <div class = "cuadroCuenta">
                       <div class="row">
                         <div class= "col">
-                          <h4 [routerLink] = "['/cuenta', cuenta.idAccount]" > {{ cuenta.name }}</h4>
+                          <h4 class="cursor-link" [routerLink] = "['/cuenta', cuenta.idAccount]" > {{ cuenta.name }}</h4>
                         </div>
                         <div class= "col">
                           <div class="col-2">
-                            <h5>{{ cuenta.total }}</h5>
+                            <h5>${{ cuenta.total.toLocaleString() }}</h5>
                           </div>
                         </div>
                         <div class="col">
