@@ -97,7 +97,7 @@
   margin-right:auto;
 }
 
-.overlay{
+.overlayIngresos{
   background-color: rgba(0, 0, 0, .3);
   position: fixed;
   top: 0;
@@ -108,40 +108,89 @@
   align-items: center;
   justify-content: center;
   visibility: hidden;
+  transition: .8s ease all;
+}
+.overlayIngresos.active{
+  visibility: visible;
+}
+.overlayGastos{
+  background-color: rgba(0, 0, 0, .3);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  transition: .5  ease all;
+}
+.overlayGastos.active{
+  visibility: visible;
 }
 
 
-.popup{
+.popupIngresos{
   background-color: #f8f8f8;
   box-shadow: 0px, 0px, 5px, 0px rgba(0,0,0,0.3);
   border-radius: 3px;
   padding: 5%;
   text-align: center;
   width: 40%;
-  opacity: 0;
+  transform: scale(0.7);
   transition: .5s ease all;
+
+}
+.popupGastos{
+  background-color: #f8f8f8;
+  box-shadow: 0px, 0px, 5px, 0px rgba(0,0,0,0.3);
+  border-radius: 3px;
+  padding: 5%;
+  text-align: center;
+  width: 40%;
+  transform: scale(0.7);
+  transition: .5s ease all;
+
 }
 
-.popup .btn-cerrar-popup{
+.popupIngresos .btn-cerrar-popupIngresos{
 font-size: 16px;
 line-height: 16px;
 display: block;
 text-align: right;
 color: #bbbbbb;
-transition: .2s ease all;
+
+
 }
-.popup .btn-cerrar-popup:hover{
+.popupIngresos .btn-cerrar-popupIngresos:hover{
   color: #000000;
 }
+.popupGastos .btn-cerrar-popupGastos{
+  font-size: 16px;
+  line-height: 16px;
+  display: block;
+  text-align: right;
+  color: #bbbbbb;
 
-.popup h3{
+  }
+  .popupGastos .btn-cerrar-popupGastos:hover{
+    color: #000000;
+  }
+
+
+.popupIngresos h3{
+  font-size: 36px;
+  margin-bottom: 10px;  
+}
+.popupGastos h3{
   font-size: 36px;
   margin-bottom: 10px;
 }
 
 
 
-.popup form .contenedor-inputs input{
+.popupIngresos form .contenedor-inputs input{
   width: 100%;
   margin-bottom: 20px;
   height: 52px;
@@ -149,9 +198,20 @@ transition: .2s ease all;
   font-size: 18px;
   text-align: center;
   border: 1px solid #bbbbbb;
+
+}
+.popupGastos form .contenedor-inputs input{
+  width: 100%;
+  margin-bottom: 20px;
+  height: 52px;
+  line-height: 52px;
+  font-size: 18px;
+  text-align: center;
+  border: 1px solid #bbbbbb;
+
 }
 
-.popup form .btn-submit{
+.popupIngresos form .btn-submit{
   padding: 0 20px;
   height: 40px;
   line-height: 40px;
@@ -161,10 +221,26 @@ transition: .2s ease all;
   border-radius: 3px;
   font-size: 16px;
   cursor: pointer;
-  transition: .2s ease all;
+
 }
 
-.popup form .btn-submit:hover{
+.popupIngresos form .btn-submit:hover{
+  background: #012390;
+}
+.popupGastos form .btn-submit{
+  padding: 0 20px;
+  height: 40px;
+  line-height: 40px;
+  border: none;
+  color: #ffffff;
+  background: #012333;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+
+}
+
+.popupGastos form .btn-submit:hover{
   background: #012390;
 }
 
@@ -178,16 +254,22 @@ transition: .2s ease all;
   border-radius: 3px;
   font-size: 16px;
   cursor: pointer;
-  transition: .2s ease all;
+
 }
 
 .btn-agregar:hover{
   background: #012390;
 }
 
-.popup.active{
+.popupIngresos.active{
   opacity: 1;
+  transform: scale(1);
 }
+.popupGastos.active{
+  opacity: 1;
+  transform: scale(1);
+}
+
 
 .cuadroCuenta{
   background-color: #007bff;

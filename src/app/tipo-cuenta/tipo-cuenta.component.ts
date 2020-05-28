@@ -22,24 +22,47 @@ export class TipoCuentaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    var btnAbrirPopup = document.getElementById("btn-agregar"),
-    overlay = document.getElementById("overlay"),
-    popup = document.getElementById("popup"),
-    btnCerrarPopup = document.getElementById("btn-cerrar-popup");
-    btnAbrirPopup.addEventListener('click', function(){
-    overlay.classList.add('active');
-    popup.classList.add('active');
+    var btnAbrirPopupIngresos = document.getElementById("btn-agregarIngresos" ),
+        overlayIngresos = document.getElementById("overlayIngresos"),
+        popupIngresos = document.getElementById("popupIngresos"),
+        btnCerrarPopupIngresos = document.getElementById("btn-cerrar-popupIngresos");
 
-  });
-  btnCerrarPopup.addEventListener('click', function(){
-    overlay.classList.remove('active');
-    popup.classList.remove('active');
-  });
-  window.addEventListener("keyup",function(e){
-    if(e.keyCode==27) {
-      overlay.classList.remove('active');
-      popup.classList.remove('active');
-    }
+    btnAbrirPopupIngresos.addEventListener('click', function(){
+        overlayIngresos.classList.add('active');
+        popupIngresos.classList.add('active');
+    });
+
+    btnCerrarPopupIngresos.addEventListener('click', function(){
+      overlayIngresos.classList.remove('active');
+      popupIngresos.classList.remove('active');
+    });
+
+    window.addEventListener("keyup",function(e){
+      if(e.keyCode==27) {
+        overlayIngresos.classList.remove('active');
+        popupIngresos.classList.remove('active');
+      }
+    });
+    var btnAbrirPopupGastos = document.getElementById("btn-agregarGastos" ),
+        overlayGastos = document.getElementById("overlayGastos"),
+        popupGastos = document.getElementById("popupGastos"),
+        btnCerrarPopupGastos = document.getElementById("btn-cerrar-popupGastos");
+
+    btnAbrirPopupGastos.addEventListener('click', function(){
+        overlayGastos.classList.add('active');
+        popupGastos.classList.add('active');
+    });
+
+    btnCerrarPopupGastos.addEventListener('click', function(){
+      overlayGastos.classList.remove('active');
+      popupGastos.classList.remove('active');
+    });
+
+    window.addEventListener("keyup",function(e){
+      if(e.keyCode==27) {
+        overlayGastos.classList.remove('active');
+        popupGastos.classList.remove('active');
+      }
     });
   }
   getDetailAccounts(){
