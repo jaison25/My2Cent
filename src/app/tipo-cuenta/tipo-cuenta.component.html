@@ -38,6 +38,9 @@
                 <div >
                   <button class="btn-agregar" id="btn-agregarIngresos">Agregar Ingreso <i class="fas fa-plus-circle"></i></button>
                 </div>
+                <div>
+                  <!--Espacio para mostrar incomes-->
+                </div>
               </div>
               <div class = "gastos col text-center">
                 <div class="btn-gastos">
@@ -53,10 +56,10 @@
                 <h3>AGREGAR INGRESOS</h3>
                  <form action="">
                    <div class="contenedor-inputs">
-                      <input type="text" placeholder="ingreso">
-                      <input type="text" placeholder="valor">
+                      <input type="text" placeholder="ingreso" [(ngModel)]="newIncomesObject.IncomeName" name= "ingreso">
+                      <input type="text" placeholder="valor" [(ngModel)]="newIncomesObject.IncomeAmount" name="valor" >
                    </div>
-                      <input type="submit" class="btn-submit" value="Agregar">
+                      <input type="submit" class="btn-submit" (click)="CreateIncome()" value="Agregar" >
                  </form> 
               </div>
             </div>

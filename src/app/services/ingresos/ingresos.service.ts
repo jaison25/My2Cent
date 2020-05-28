@@ -8,7 +8,7 @@ export class IngresosService {
 
   constructor(private http: HttpClient) { }
 
-  CreateIncome(IdUser) {
-    return this.http.post('http://localhost:3000/incomes/', IdUser);
+  CreateIncome(Income) {
+    return this.http.post('http://localhost:3000/incomes/', Income);
   }
 }

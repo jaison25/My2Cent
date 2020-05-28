@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { CuentasService } from '../services/cuentas/cuentas.service';
+import { IngresosService } from '../services/ingresos/ingresos.service';
 import { AccountResponse} from '../interfaces/accountResponse';
+import { IncomesResponse } from "../interfaces/incomesResponce";
 import { Response } from '../interfaces/response';
 
 @Component({
@@ -15,7 +17,13 @@ export class TipoCuentaComponent implements OnInit {
   idAccount: string;
   total:number;
 
-  constructor(private route: ActivatedRoute, private accounts: CuentasService) {   
+  newIncomesObject = {
+    IncomeName: '',
+    IncomeAmount: '',
+    IncomeAccountID: 0
+  }
+
+  constructor(private route: ActivatedRoute, private accounts: CuentasService, private incomes: IngresosService) {   
     this.nombre = JSON.parse(sessionStorage.getItem('nombre'));
     this.idAccount = this.route.snapshot.paramMap.get('id');
     this.getDetailAccounts();
@@ -70,6 +78,15 @@ export class TipoCuentaComponent implements OnInit {
       this.nombreCuenta = response.data.AccountName;
       this.total = response.data.AccountTotal;
       })
+  }
+  CreateIncome() {
+    this.newIncomesObject.IncomeAccountID = JSON.parse(this.idAccount);
+    this.incomes.CreateIncome(this.newIncomesObject).subscribe((response: Response<IncomesResponse>) => {
+     console.log(response) ;
+     const isRegister = response.status;
+     const btnCerrarPopupIngresos = document.getElementById("btn-cerrar-popupIngresos");
+     btnCerrarPopupIngresos.click();     
+    })
   }
 
 }
