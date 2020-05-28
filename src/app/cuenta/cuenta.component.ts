@@ -16,7 +16,7 @@ export class CuentaComponent implements OnInit {
   newAccountObject = {
     AccountName: '',
     AccountUserId: '',
-    AccountTotal: ''
+    AccountTotal: 0
   }
 
   constructor(private allaccounts: CuentasService) { 
@@ -63,8 +63,8 @@ export class CuentaComponent implements OnInit {
     });
   }
   CreateAccount() {
+    this.newAccountObject.AccountUserId = JSON.parse(sessionStorage.getItem('id'));
     this.allaccounts.CreateAccounts(this.newAccountObject).subscribe((response: Response<AccountResponse>) => {
-      this.newAccountObject.AccountUserId = JSON.parse(sessionStorage.getItem('id'));
       const isRegister = response.status;
            
     })
