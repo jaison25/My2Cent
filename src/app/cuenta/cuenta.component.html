@@ -24,7 +24,6 @@
               <nav class="menup">
                   <ul>
                       <button class="btn-agregar" id="btn-agregar">Agregar Cuenta <i class="fas fa-plus-circle"></i></button>
-                      <li onclick="location.href='perfil'">Perfil</li>
                       <li onclick="location.href='bienvenido'">Inicio</li>
                       <li onclick="location.href=''">Salir</li>
                       
@@ -52,7 +51,7 @@
                     <div class = "cuadroCuenta">
                       <div class="row">
                         <div class= "col">
-                          <h4 onclick="location.href='cuenta'"> {{ cuenta.name }}</h4>
+                          <h4 [routerLink] = "['/cuenta', cuenta.idAccount]" > {{ cuenta.name }}</h4>
                         </div>
                         <div class= "col">
                           <div class="col-2">

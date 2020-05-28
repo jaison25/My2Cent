@@ -49,12 +49,13 @@ async function searchAccountsById(req, res) {
   try {
     const { idAccount } = req.params;
     const account = await dbManager.Account.findOne({
+      attributes: ['AccountId', 'AccountName', 'AccountTotal'],  
       where: {
         AccountId: idAccount,
         AccountState: 1
       }
     });
-    res.json(account);
+    res.json({status:true, message:'', data:account});
   } catch (error) {
     res.status(500).send({
       menssage: "ERROR, SORRY"

@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: 'grafica', component:ChartComponent},
   {path: 'dona', component:DonaComponent},
   {path: 'pie', component:PieComponent},
-  {path: 'cuenta', component:TipoCuentaComponent},
+  {path: 'cuenta/:id', component:TipoCuentaComponent},
   {path: '**', component:InicialComponent}
   
 
