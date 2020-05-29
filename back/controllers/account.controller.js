@@ -49,13 +49,13 @@ async function searchAccountsById(req, res) {
   try {
     const { idAccount } = req.params;
     const account = await dbManager.Account.findOne({
-      attributes: ['AccountId', 'AccountName', 'AccountTotal'],  
+      attributes: ['AccountId', 'AccountName', 'AccountTotal'],
       where: {
         AccountId: idAccount,
         AccountState: 1
       }
     });
-    res.json({status:true, message:'', data:account});
+    res.json({ status: true, message: '', data: account });
   } catch (error) {
     res.status(500).send({
       menssage: "ERROR, SORRY"
@@ -79,7 +79,37 @@ async function changeStatusAccount(req, res) {
   }
 }
 
+async function chartAccountState(req, res) {
+  try {
+    const { idUser } = req.params;
+    const [accounts] = await dbManager.sequelizeCx.query(`
+      SELECT AccountUserID, AccountName, SUM(incomes) incomes, SUM(spending) spending FROM (
+      (SELECT AccountUserID, AccountName, SUM(i.IncomeAmount) incomes, 0 spending
+        FROM account a
+        INNER JOIN incomes i ON i.IncomeAccountID = a.AccountId GROUP BY AccountName, AccountUserID)
+                                                              
+        UNION
+        
+        (SELECT 
+        AccountUserID, AccountName, 0 incomes, SUM(s.SpendingAmount) spending
+        FROM account a
+        INNER JOIN spending s ON s.SpendingAccountID = a.AccountId GROUP BY AccountName, AccountUserID)
+        ) X WHERE AccountUserID = ${idUser}
+        GROUP BY AccountUserID, AccountName`
+    );
+    const accountName = accounts.map(account => account.AccountName);
+    const incomes = accounts.map(account => account.incomes);
+    const spending = accounts.map(account => account.spending);
+    res.json({ status: true, data: { accountName, incomes, spending }, message: "" })
+  } catch (error) {
+    res.status(500).send({
+      menssage: "ERROR, SORRY"
+    });
+  }
+}
+
 exports.createAccount = createAccount;
 exports.searchAccountsByUserId = searchAccountsByUserId;
 exports.searchAccountsById = searchAccountsById;
 exports.changeStatusAccount = changeStatusAccount;
+exports.chartAccountState = chartAccountState;

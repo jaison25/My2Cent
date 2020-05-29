@@ -106,6 +106,7 @@
   align-items: center;
   justify-content: center;
   visibility: hidden;
+  z-index: 99;
 }
 .overlay.active{
   visibility: visible;

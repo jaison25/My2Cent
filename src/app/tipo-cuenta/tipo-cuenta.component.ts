@@ -130,6 +130,7 @@ export class TipoCuentaComponent implements OnInit {
      const btnCerrarPopupIngresos = document.getElementById("btn-cerrar-popupIngresos");
      btnCerrarPopupIngresos.click(); 
      this.getAllIncomes();
+     this.getDetailAccounts();
     })
   }
   CreateSpending() {
@@ -138,7 +139,8 @@ export class TipoCuentaComponent implements OnInit {
      const isRegister = response.status;
      const btnCerrarPopupGastos = document.getElementById("btn-cerrar-popupGastos");
      btnCerrarPopupGastos.click(); 
-     this.getAllSpendings();    
+     this.getAllSpendings();
+     this.getDetailAccounts();    
     })
   }
 

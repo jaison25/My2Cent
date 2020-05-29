@@ -18,4 +18,7 @@ export class CuentasService {
     return this.http.get(`http://localhost:3000/accounts/details/${IdAccount}`)
   
   }
+  getCharAccount(IdUser){
+    return this.http.get(`http://localhost:3000/accounts/chartAccountState/${IdUser}`)
+  }
 }

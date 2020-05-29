@@ -64,9 +64,12 @@ export class CuentaComponent implements OnInit {
   }
   CreateAccount() {
     this.newAccountObject.AccountUserId = JSON.parse(sessionStorage.getItem('id'));
+  
     this.allaccounts.CreateAccounts(this.newAccountObject).subscribe((response: Response<AccountResponse>) => {
       const isRegister = response.status;
-           
+      this.getAllAccounts();
+      const btnCerrarPopup = document.getElementById("btn-cerrar-popup");
+      btnCerrarPopup.click();
     })
   }
   

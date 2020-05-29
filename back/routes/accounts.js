@@ -6,6 +6,7 @@ const accountController = require("../controllers/account.controller");
 router.post("/", accountController.createAccount);
 router.get("/:idUser", accountController.searchAccountsByUserId);
 router.get("/details/:idAccount", accountController.searchAccountsById);
+router.get("/chartAccountState/:idUser", accountController.chartAccountState);
 router.put("/:idAccount", accountController.changeStatusAccount);
 
 module.exports = router;

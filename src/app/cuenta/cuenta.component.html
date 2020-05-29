@@ -1,82 +1,75 @@
 <div class="toolbar" role="banner">
-    <img
-      width="15%"
-      alt="Logo My 2 Cent"
-      src="/assets/Logo.png"
-      onclick="location.href='bienvenido'"
-    />
-    <div>
-      <p class ="nombre" onclick="location.href='perfil'">{{ nombre }}</p>
-    </div>
+  <img width="15%" alt="Logo My 2 Cent" src="/assets/Logo.png" onclick="location.href='bienvenido'" />
+  <div>
+    <p class="nombre" onclick="location.href='perfil'">{{ nombre }}</p>
   </div>
+</div>
 <hr>
 <hr>
 <br>
 
-<div class= "container-all">
-    <div class="row">
+<div class="container-all">
+  <div class="row">
 
-        <div class= "col-md-3 col-xl-2 bd-sidebar"  >
-          <div class= "menua">
-  
-            <input type="checkbox" id = "check">
-              <label for="check" class="menu"></label>
-              <nav class="menup">
-                  <ul>
-                      <button class="btn-agregar" id="btn-agregar">Agregar Cuenta <i class="fas fa-plus-circle"></i></button>
-                      <li onclick="location.href='bienvenido'">Inicio</li>
-                      <li onclick="location.href=''">Salir</li>
-                      
-                  </ul>
-              </nav>
-          </div>
+    <div class="col-md-3 col-xl-2 bd-sidebar">
+      <div class="menua">
+
+        <input type="checkbox" id="check">
+        <label for="check" class="menu"></label>
+        <nav class="menup">
+          <ul>
+            <button class="btn-agregar" id="btn-agregar">Agregar Cuenta <i class="fas fa-plus-circle"></i></button>
+            <li onclick="location.href='bienvenido'">Inicio</li>
+            <li onclick="location.href=''">Salir</li>
+
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
+      <div class="overlay" id="overlay">
+        <div class="popup" id="popup">
+          <a id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+          <h3>AGREGAR CUENTA</h3>
+          <form action="">
+            <div class="contenedor-inputs">
+              <input type="text" [(ngModel)]="newAccountObject.AccountName" name="nombre" placeholder="cuenta">
+            </div>
+            <input type="submit" class="btn-submit" (click)="CreateAccount()" value="Agregar">
+          </form>
         </div>
-        <div class= "col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
-            <div class = "overlay" id="overlay">
-              <div class="popup" id="popup">
-                <a  id="btn-cerrar-popup" class="btn-cerrar-popup"><i class= "fas fa-times"></i></a>
-                <h3>AGREGAR CUENTA</h3>
-                <form action="">
-                  <div class="contenedor-inputs">
-                    <input type="text" [(ngModel)]="newAccountObject.AccountName" name="nombre" placeholder="cuenta">
-                  </div>
-                    <input type="submit" class = "btn-submit" (click)="CreateAccount()" value="Agregar" onclick="location.href='cuentas'">
-                </form>
+      </div>
+      <h3 class="text-center text-blue">Mis Cuentas</h3>
+      <br>
+      <br>
+      <div *ngFor="let cuenta of miscuentas">
+        <div class="cuadroCuenta">
+          <div class="row">
+            <div class="col">
+              <h4 class="cursor-link" [routerLink]="['/cuenta', cuenta.idAccount]"> {{ cuenta.name }}</h4>
+            </div>
+            <div class="col">
+              <div class="col-2">
+                <h5>${{ cuenta.total.toLocaleString() }}</h5>
               </div>
             </div>
-            <h3 class="text-center text-blue">Mis Cuentas</h3>
-            <br>
-            <br>
-            <div *ngFor="let cuenta of miscuentas">
-                    <div class = "cuadroCuenta">
-                      <div class="row">
-                        <div class= "col">
-                          <h4 class="cursor-link" [routerLink] = "['/cuenta', cuenta.idAccount]" > {{ cuenta.name }}</h4>
-                        </div>
-                        <div class= "col">
-                          <div class="col-2">
-                            <h5>${{ cuenta.total.toLocaleString() }}</h5>
-                          </div>
-                        </div>
-                        <div class="col">
-                          <div class="btn-cuenta">
-                            <button class="btn btn-danger">Eliminar</button>
-                          </div>
-                        </div> 
-                      </div>
-                   </div>
-                   <br>
-                   <br>
-            </div>     
-                   
-
-            
+            <div class="col">
+              <div class="btn-cuenta">
+                <button class="btn btn-danger">Eliminar</button>
+              </div>
+            </div>
+          </div>
         </div>
+        <br>
+        <br>
+      </div>
+
+
+
     </div>
-    
+  </div>
+
 
 
 
 </div>
-
-
