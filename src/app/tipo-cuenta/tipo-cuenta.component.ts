@@ -2,9 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { CuentasService } from '../services/cuentas/cuentas.service';
 import { IngresosService } from '../services/ingresos/ingresos.service';
+import { GastosService } from '../services/gastos/gastos.service';
 import { AccountResponse} from '../interfaces/accountResponse';
 import { IncomesResponse } from "../interfaces/incomesResponce";
+import { SpendingResponse } from "../interfaces/spendingResponse";
 import { Response } from '../interfaces/response';
+
 
 @Component({
   selector: 'app-tipo-cuenta',
@@ -17,16 +20,26 @@ export class TipoCuentaComponent implements OnInit {
   idAccount: string;
   total:number;
 
+  misGastos = [];
+  misIngresos = [];
+
   newIncomesObject = {
     IncomeName: '',
     IncomeAmount: '',
     IncomeAccountID: 0
   }
+  newSpendingObject = {
+    SpendingName: '',
+    SpendingAmount: '',
+    SpendingAccountID: 0
+  }
 
-  constructor(private route: ActivatedRoute, private accounts: CuentasService, private incomes: IngresosService) {   
+  constructor(private route: ActivatedRoute, private accounts: CuentasService, private incomes: IngresosService, private spendigs: GastosService, private navigator: Router) {   
     this.nombre = JSON.parse(sessionStorage.getItem('nombre'));
     this.idAccount = this.route.snapshot.paramMap.get('id');
     this.getDetailAccounts();
+    this.getAllIncomes();
+    this.getAllSpendings();
   }
 
   ngOnInit(): void {
@@ -79,14 +92,56 @@ export class TipoCuentaComponent implements OnInit {
       this.total = response.data.AccountTotal;
       })
   }
+  getAllIncomes(){
+    this.incomes.getIncome(this.idAccount).subscribe((response: Response<[IncomesResponse]>) => {
+      console.log(response)
+        const arrayIncomes = response.data.map(income => {
+          return {
+            idAccount: income.IncomeAccountID,
+            name: income.IncomeName,
+            total: income.IncomeAmount,
+            idincome: income.IncomeId
+          }
+          
+        });
+
+        this.misIngresos = arrayIncomes
+    })
+  }
+  getAllSpendings(){
+    this.spendigs.getSpendings(this.idAccount).subscribe((response: Response<[SpendingResponse]>) => {
+        const arraySpendins = response.data.map(spending => {
+          return {
+            idAccount: spending.SpendingAccountID,
+            name: spending.SpendingName,
+            total: spending.SpendingAmount,
+            idspending: spending.SpendingId
+          }
+          
+        });
+
+        this.misGastos = arraySpendins
+    })
+  }
   CreateIncome() {
     this.newIncomesObject.IncomeAccountID = JSON.parse(this.idAccount);
     this.incomes.CreateIncome(this.newIncomesObject).subscribe((response: Response<IncomesResponse>) => {
-     console.log(response) ;
      const isRegister = response.status;
      const btnCerrarPopupIngresos = document.getElementById("btn-cerrar-popupIngresos");
-     btnCerrarPopupIngresos.click();     
+     btnCerrarPopupIngresos.click(); 
+     this.getAllIncomes();
     })
   }
+  CreateSpending() {
+    this.newSpendingObject.SpendingAccountID = JSON.parse(this.idAccount);
+    this.spendigs.CreateSpendins(this.newSpendingObject).subscribe((response: Response<SpendingResponse>) => {
+     const isRegister = response.status;
+     const btnCerrarPopupGastos = document.getElementById("btn-cerrar-popupGastos");
+     btnCerrarPopupGastos.click(); 
+     this.getAllSpendings();    
+    })
+  }
+
+  
 
 }

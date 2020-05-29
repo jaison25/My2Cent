@@ -32,24 +32,75 @@
           </div>
         </div>
         <div class= "col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
-            <h3 class="text-center text-blue justify-content-between">{{nombreCuenta}} ${{total.toLocaleString()}} COP</h3>
+            <h3 class="text-center text-blue justify-content-between">{{nombreCuenta}}: ${{total}} COP</h3>
+            <br>
             <div class ="d-flex flex-wrap justify-content-between">
               <div class="col text-center">
+                <br>
                 <div >
                   <button class="btn-agregar" id="btn-agregarIngresos">Agregar Ingreso <i class="fas fa-plus-circle"></i></button>
                 </div>
+                <br>
+                <br>
                 <div>
-                  <!--Espacio para mostrar incomes-->
+                  <div *ngFor="let income of misIngresos">
+                    <div class = "cuadroCuenta">
+                      <div class="row">
+                        <div class= "col">
+                          <p  class ="nombreIngreso" onclick="location.href='cuenta'"> {{ income.name }}</p>
+                        </div>
+                        <div class= "col">
+                          <div class="col-2">
+                            <p>{{ income.total }}</p>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="btn-cuenta">
+                            <button class="btn btn-danger">Eliminar</button>
+                          </div>
+                        </div> 
+                      
+                   </div></div>
+                   <br>
+                   <br>
+                </div>
                 </div>
               </div>
               <div class = "gastos col text-center">
                 <div class="btn-gastos">
+                  <br>
                   <button class="btn-agregar" id="btn-agregarGastos">Agregar Gasto <i class="fas fa-plus-circle"></i></button>  
+                </div>
+                <br>
+                <br>
+                <div>
+                  <div *ngFor="let spending of misGastos">
+                    <div class = "cuadroCuenta">
+                      <div class="row">
+                        <div class= "col">
+                          <p  class ="nombreIngreso"> {{ spending.name }}</p>
+                        </div>
+                        <div class= "col">
+                          <div class="col-2">
+                            <p>{{ spending.total }}</p>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="btn-cuenta">
+                            <button class="btn btn-danger">Eliminar</button>
+                          </div>
+                        </div> 
+                      
+                   </div></div>
+                   <br>
+                   <br>
+                </div>
                 </div>
               </div>
             </div>
             <br>
             <br>
+            
             <div class = "overlayIngresos" id="overlayIngresos">
               <div class = "popupIngresos" id="popupIngresos">
                 <a id="btn-cerrar-popupIngresos" class="btn-cerrar-popupIngresos"><i class="fas fa-times"></i></a>
@@ -59,7 +110,7 @@
                       <input type="text" placeholder="ingreso" [(ngModel)]="newIncomesObject.IncomeName" name= "ingreso">
                       <input type="text" placeholder="valor" [(ngModel)]="newIncomesObject.IncomeAmount" name="valor" >
                    </div>
-                      <input type="submit" class="btn-submit" (click)="CreateIncome()" value="Agregar" >
+                  <input type="submit" class="btn-submit" (click)="CreateIncome()" value="Agregar"  >
                  </form> 
               </div>
             </div>
@@ -69,10 +120,10 @@
                 <h3>AGREGAR GASTOS</h3>
                  <form action="">
                    <div class="contenedor-inputs">
-                      <input type="text" placeholder="gastos">
-                      <input type="text" placeholder="valor">
+                      <input type="text" [(ngModel)]="newSpendingObject.SpendingName" placeholder="gastos" name= "gasto">
+                      <input type="text" [(ngModel)]="newSpendingObject.SpendingAmount" placeholder="valor" name= "valorgasto">
                    </div>
-                      <input type="submit" class="btn-submit" value="Agregar">
+                      <input type="submit" class="btn-submit" (click)="CreateSpending()" value="Agregar">
                  </form> 
               </div>
             </div>          

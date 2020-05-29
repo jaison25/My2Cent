@@ -11,4 +11,8 @@ export class IngresosService {
   CreateIncome(Income) {
     return this.http.post('http://localhost:3000/incomes/', Income);
   }
+  getIncome(IdAccount) {
+    return this.http.get(`http://localhost:3000/incomes/${IdAccount}`)
+  
+  }
 }
