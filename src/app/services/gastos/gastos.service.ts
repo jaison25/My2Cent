@@ -7,11 +7,11 @@ import { HttpClient } from '@angular/common/http';
 export class GastosService {
    
    constructor(private http: HttpClient) {}
-    CreateIncomes(NewIncome) {
-      return this.http.post(`http://localhost:3000/incomes/`, NewIncome)
+    CreateSpendins(NewGasto) {
+      return this.http.post(`http://localhost:3000/spendings/`, NewGasto)
     }
-    getIncomes(IdAccount) {
-      return this.http.get(`http://localhost:3000/incomes/${IdAccount}`)
+    getSpendings(IdAccount) {
+      return this.http.get(`http://localhost:3000/spendings/${IdAccount}`)
     
     }
 }

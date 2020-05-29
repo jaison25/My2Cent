@@ -31,7 +31,7 @@ async function searchIncomesByAccountId(req, res) {
         IncomeState: 1
       }
     });
-    res.json(Incomes);
+    res.json({ status: true, data: Incomes, message: " " });
   } catch (error) {
     res.status(500).send({
       menssage: "ERROR, SORRY"

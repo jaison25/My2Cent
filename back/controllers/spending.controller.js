@@ -31,7 +31,7 @@ async function searchSpendingByAccountId(req, res) {
         SpendingState: 1
       }
     });
-    res.json(Spending);
+    res.json({ status: true, data: Spending, message: " " });
   } catch (error) {
     res.status(500).send({
       menssage: "ERROR, SORRY"

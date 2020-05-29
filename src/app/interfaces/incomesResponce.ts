@@ -1,6 +1,6 @@
 export interface IncomesResponse{
-    IncomesId: number,
-    IncomesName: String,
-    IncomesAmmount: number,
-    AccountId:number,
+    IncomeId: number,
+    IncomeName: String,
+    IncomeAmount: number,
+    IncomeAccountID:number,
 }
